@@ -29,10 +29,11 @@ class MoneyViewModel(private val repository: MoneyRepository) : ViewModel() {
         combine(repository.settings, repository.wishlist) { settings, items -> buildState(settings, items) }
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), MoneyUiState())
 
-    fun updateSettings(monthlyIncome: Double, hoursPerWeek: Double) {
+    fun updateSettings(monthlyIncome: Double, hoursPerWeek: Double, onDone: () -> Unit) {
         viewModelScope.launch {
             val updated = state.value.settings.copy(monthlyIncome = monthlyIncome, hoursPerWeek = hoursPerWeek)
             repository.updateSettings(updated)
+            onDone()
         }
     }
 

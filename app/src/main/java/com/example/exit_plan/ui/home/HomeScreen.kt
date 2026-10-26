@@ -24,7 +24,7 @@ fun HomeScreen(
     onOpenMoney: () -> Unit,
     onOpenEscape: () -> Unit,
     onOpenCheck: () -> Unit,
-    checkSubtitle: String = "Фейковый звонок, если не отметишься вовремя"
+    checkSubtitle: String
 ) {
     Scaffold(topBar = { AppTopBar(title = "Antitrap") }) { padding ->
         Column(

@@ -32,10 +32,7 @@ fun MoneySettingsScreen(viewModel: MoneyViewModel, onBack: () -> Unit) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     MoneySettingsContent(
         settings = state.settings,
-        onSave = { income, hours ->
-            viewModel.updateSettings(income, hours)
-            onBack()
-        },
+        onSave = { income, hours -> viewModel.updateSettings(income, hours, onDone = onBack) },
         onBack = onBack
     )
 }

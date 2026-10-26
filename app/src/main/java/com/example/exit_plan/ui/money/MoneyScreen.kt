@@ -164,7 +164,7 @@ private fun WishRow(wish: WishItemUi, currency: String, onRemove: () -> Unit) {
         ListItem(
             headlineContent = { Text(wish.item.title) },
             supportingContent = { Text(formatMoney(wish.item.price, currency)) },
-            overlineContent = wish.lifeTime?.let { { Text(it.short()) } },
+            overlineContent = if (wish.lifeTime != null) { { Text(wish.lifeTime.short()) } } else null,
             trailingContent = {
                 IconButton(onClick = onRemove) {
                     Icon(Icons.Default.Delete, contentDescription = "Удалить ${wish.item.title}")

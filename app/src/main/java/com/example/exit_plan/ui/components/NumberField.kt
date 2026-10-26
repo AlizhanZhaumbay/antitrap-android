@@ -23,9 +23,9 @@ fun NumberField(
         label = { Text(label) },
         modifier = modifier,
         singleLine = true,
-        suffix = suffix?.let { { Text(it) } },
+        suffix = if (suffix != null) { { Text(suffix) } } else null,
         isError = errorText != null,
-        supportingText = errorText?.let { { Text(it) } },
+        supportingText = if (errorText != null) { { Text(errorText) } } else null,
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal, imeAction = ImeAction.Done)
     )
 }
