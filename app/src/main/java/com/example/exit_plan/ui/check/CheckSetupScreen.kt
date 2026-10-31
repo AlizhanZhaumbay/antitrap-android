@@ -42,7 +42,7 @@ fun CheckSetupScreen(
     onOpenCountdown: () -> Unit,
     onBack: () -> Unit
 ) {
-    var durationSeconds by rememberSaveable { mutableIntStateOf(CheckDurations.optionsSeconds[2]) }
+    var durationSeconds by rememberSaveable { mutableIntStateOf(CheckDurations.optionsSeconds[3]) }
     var selectedId by rememberSaveable { mutableStateOf<Long?>(null) }
     val selected = scenarios.find { it.id == selectedId } ?: scenarios.firstOrNull()
 
